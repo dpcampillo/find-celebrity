@@ -27,3 +27,7 @@ This application implements Swagger for apis documentation, visit http://localho
 In the project there are two examples of csv files for uploading relationships
 - data/data-with-celebrity.csv
 - data/data-without-celebrity.csv
+
+In the first column goes the person, and the second column goes the person who is known,
+for example.
+In the application there is a function that read the file under this structure and is able to build the structure of people with their respective relationships
