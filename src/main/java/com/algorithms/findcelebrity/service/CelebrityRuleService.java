@@ -13,23 +13,43 @@ public class CelebrityRuleService {
 
 	/**
 	 * Check if the candidate found is a celebrity
+	 * 
 	 * @param candidate
 	 * @param persons
 	 * @return
 	 */
 	public Person checkCandidate(Person candidate, List<Person> persons) {
-		return persons.stream().filter(predicate -> predicate.getKnows().contains(candidate.getName()))
+		return persons.stream().filter(predicate -> !predicate.equals(candidate) 
+				&& predicate.getKnows().contains(candidate.getName()))
 				.count() == persons.size() - 1 ? candidate : null;
 	}
-
+	
 	/**
 	 * looking for a candidate to be a celebrity
+	 * 
 	 * @param persons
 	 * @return
 	 */
 	public Person findCandidate(List<Person> persons) {
-		return persons.stream().filter(predicate -> predicate.getKnows().isEmpty()).findFirst()
-				.orElseThrow(() -> new CelebrityNotFoundException(ServiceConst.MESSAGE_NOT_FOUND.getValue()));
+		for(Person person : persons) {
+			if(isCandidate(person)) {
+				return person;
+			}
+		}
+		throw new CelebrityNotFoundException(ServiceConst.MESSAGE_NOT_FOUND.getValue());
+	}
+
+	/**
+	 * Verify if a person is a candidate
+	 * @param person
+	 * @return
+	 */
+	public boolean isCandidate(Person person) {
+		for (String knows : person.getKnows()) {
+			if (!knows.equals(person.getName()))
+				return false;
+		}
+		return true;
 	}
 
 }

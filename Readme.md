@@ -9,6 +9,7 @@ The algorithm solution was raised, taking into account two business rules
 
   - A celebrity should not meet any person on the team
   - All team members should know that person
+  - It is concluded that can exist only one celebrity, because a celebrity is a person known by every memeber of the team
   
 The project was developed under the SpringBoot framework, using Java 8, SpringBoot 2.2.4.RELEASE
 and Maven.

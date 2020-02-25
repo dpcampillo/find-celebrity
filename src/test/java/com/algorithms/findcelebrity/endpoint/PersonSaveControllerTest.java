@@ -29,5 +29,13 @@ public class PersonSaveControllerTest {
 				.content(JsonConverter.asJsonString(new DataHelper().getCandidate())))
 				.andExpect(MockMvcResultMatchers.status().isOk());
 	}
+	
+	@Test
+	public void savePersonList() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.post("/persons/save/list").contentType(MediaType.APPLICATION_JSON_VALUE)
+				.content(JsonConverter.asJsonString(new DataHelper().getPersonsWithCelebrity())))
+				.andExpect(MockMvcResultMatchers.status().isOk());
+	}
 
+	
 }

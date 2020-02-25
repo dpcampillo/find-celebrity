@@ -16,7 +16,7 @@ public class PersonRepositoryImpl implements PersonRepository {
     @Override
     public Person save(Person person) {
         if(person.getKnows() == null){
-            person.setKnows(new ArrayList<>());
+            person.setKnows(new LinkedHashSet<>());
         }
         persons.add(person);
         return person;
