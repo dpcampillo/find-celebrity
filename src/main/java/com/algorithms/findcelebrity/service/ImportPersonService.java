@@ -52,7 +52,7 @@ public class ImportPersonService {
 
     public List<Person> getList(byte[] content) {
         return converter(content).entrySet().stream()
-                .map(mapper -> new Person(mapper.getKey(), new ArrayList<>(mapper.getValue())))
+                .map(mapper -> new Person(mapper.getKey(), new LinkedHashSet<>(mapper.getValue())))
                 .collect(Collectors.toList());
     }
 

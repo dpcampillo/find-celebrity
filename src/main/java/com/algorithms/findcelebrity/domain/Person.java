@@ -1,12 +1,12 @@
 package com.algorithms.findcelebrity.domain;
 
+import java.util.Objects;
+import java.util.Set;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.List;
-import java.util.Objects;
 
 @Setter
 @Getter
@@ -14,7 +14,7 @@ import java.util.Objects;
 @AllArgsConstructor
 public class Person {
     private String name;
-    private List<String> knows;
+    private Set<String> knows;
 
     @Override
     public boolean equals(Object o) {
